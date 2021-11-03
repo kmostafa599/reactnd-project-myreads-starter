@@ -1,0 +1,42 @@
+import React from "react";
+import SelectBar from "./SelectBar";
+
+class Book extends React.Component {
+  handleSelection = (selection) => {
+    this.props.abooks.setState({ shelf: selection });
+  };
+  render() {
+    const theBook = this.props.abooks;
+    console.log("array of books", theBook);
+    return (
+      <div className="book">
+        <div className="book-top">
+          <div
+            className="book-cover"
+            style={
+              theBook.imageLinks == undefined
+                ? {
+                    width: 128,
+                    height: 193,
+                    backgroundImage: "",
+                  }
+                : {
+                    width: 128,
+                    height: 193,
+                    backgroundImage: `url(${theBook.imageLinks.thumbnail})`,
+                  }
+            }
+          />
+
+          <div className="book-shelf-changer">
+            <SelectBar book={theBook} selection={this.props.handleSelection} />
+          </div>
+        </div>
+        <div className="book-title">{theBook.title}</div>
+        <div className="book-authors">{theBook.authors}</div>
+        <div className="book-published">{theBook.publishedDate}</div>
+      </div>
+    );
+  }
+}
+export default Book;
