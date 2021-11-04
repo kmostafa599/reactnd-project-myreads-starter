@@ -115,11 +115,7 @@ class BooksApp extends React.Component {
       }}>
           //container
       </Route>
-        <div className="open-search">
-          <Link to = "/search">
-            Add a book
-          </Link>
-        </div>
+
       </div>
 
 
