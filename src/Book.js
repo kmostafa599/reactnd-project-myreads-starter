@@ -1,11 +1,10 @@
 import React from "react";
 import SelectBar from "./SelectBar";
 
-class Book extends React.Component {
-  handleSelection = (selection) => {
-    this.props.abooks.setState({ shelf: selection });
-  };
-  render() {
+
+function Book (props){
+  
+
     const theBook = this.props.abooks;
     console.log("array of books", theBook);
     return (
@@ -38,5 +37,5 @@ class Book extends React.Component {
       </div>
     );
   }
-}
+ 
 export default Book;
