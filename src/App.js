@@ -5,10 +5,11 @@ import * as BooksAPI from "./BooksAPI";
 import "./App.css";
 import Container from "./Container";
 import Book from "./Book";
-import {BrowserRouter} from react-router-dom
+//import {BrowserRouter} from 'react-router-dom'
+import {Route,Routes } from 'react-router-dom'
 
 
-import { Route } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 class BooksApp extends React.Component {
   state = {
@@ -58,15 +59,17 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
-        <Route path = "/search"  >  render = {() =>{
-          <div className="search-books">
-            <div className="search-books-bar">
-              <Link
+        <Routes>
+        <Route path = "/search">
+                        <Link
                 className="close-search"
                 to = '/'
               >
                 Close
               </Link>
+        <div className="search-books">
+            <div className="search-books-bar">
+
               <div className="search-books-input-wrapper">
                 {/*
                   NOTES: The search from BooksAPI is limited to a particular set of search terms.
@@ -102,20 +105,16 @@ class BooksApp extends React.Component {
               </ol>
             </div>
           </div>
-        }}
+         </Route>
 
-        </Route>
-
-      <Route path = "/" render ={() =>{
+      <Route path = "/" >
         <Container
           books={this.state.Allbooks}
           handleSelection={this.handleSelection}
         />
-
-      }}>
           //container
       </Route>
-
+</Routes>
       </div>
 
 
