@@ -5,9 +5,11 @@ import Shelf from "./BookShelf";
 import {Link} from 'react-router-dom'
 
 
-class Container extends React.Component {
+function Container (props){
+
+
   //handleSelection = (selection) => {};
-  render() {
+
     // console.log(this.props.books)
     //console.log(this.props.books.filter(book => book.shelf === "wantToRead"))
     return (
@@ -43,7 +45,9 @@ class Container extends React.Component {
         </div>
       </div>
     );
-  }
+  
+
 }
+
 
 export default Container;
