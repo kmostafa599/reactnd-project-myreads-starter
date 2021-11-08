@@ -26,8 +26,8 @@ class BooksApp extends React.Component {
   };
   handleSearch = (e) => {
     let state = { ...this.state };
-    if (e == "") {
-      return;
+    if (e === "") {
+      return ;
     }
     BooksAPI.search(e.currentTarget.value).then((r) =>
       this.setState({ returnedBooks: r })
@@ -43,14 +43,14 @@ class BooksApp extends React.Component {
 
   handleSelection = (selection, book) => {
     //console.log("this book", book);
-    BooksAPI.update(book, selection).then((response) =>
-      this.setState((currentState) => {
+    BooksAPI.update(book, selection).then((response) =>{
+      book.shelf = selection;
+      this.setState((currentState) => ({
         Allbooks: currentState.Allbooks.filter(
           (theBook) => theBook.id !== book.id
-        ).concat(book);
-      })
-    );
-
+        ).concat(book)
+      }));
+    });
     //console.log("this book", book);
 
     //book.shelf = selection
@@ -60,7 +60,7 @@ class BooksApp extends React.Component {
     return (
       <div className="app">
           <Route path = "/search" render ={()=>(
-            <Search returnedBooks ={this.state.returnedBooks} handleSelection={this.handleSelection}/>
+            <Search returnedBooks ={this.state.returnedBooks} handleSearch={this.handleSearch}/>
           )}>
 
         </Route>

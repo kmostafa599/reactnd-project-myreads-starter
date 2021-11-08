@@ -36,9 +36,10 @@ function Search(props){
       <li />
     ) : Array.isArray(props.returnedBooks) ? (
       props.returnedBooks.map((book) => (
+        
         <li key={book.id}>
           <Book
-            books={book}
+            abooks={book}
             handleSelection={props.handleSelection}
           />
         </li>

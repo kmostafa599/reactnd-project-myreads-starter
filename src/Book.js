@@ -7,6 +7,7 @@ function Book (props){
 
     const theBook = props.abooks;
     console.log("array of books", theBook);
+
     return (
       <div className="book">
         <div className="book-top">
@@ -26,7 +27,7 @@ function Book (props){
                   }
             }
           />
-  
+
           <div className="book-shelf-changer">
             <SelectBar book={theBook} selection={props.handleSelection} />
           </div>
