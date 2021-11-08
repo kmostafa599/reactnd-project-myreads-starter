@@ -5,15 +5,16 @@ import Book from "./Book";
 function Search(props){
    return(
     <div>
+
+    <div className="search-books">
+
+    <div className="search-books-bar">
     <Link
     className="close-search"
     to = '/'
     >
     Close
     </Link>
-    <div className="search-books">
-    <div className="search-books-bar">
-    
     <div className="search-books-input-wrapper">
     {/*
       NOTES: The search from BooksAPI is limited to a particular set of search terms.
