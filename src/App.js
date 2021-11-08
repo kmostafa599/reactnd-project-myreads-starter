@@ -6,8 +6,8 @@ import "./App.css";
 import Container from "./Container";
 import Book from "./Book";
 //import {BrowserRouter} from 'react-router-dom'
-import {Route,Routes } from 'react-router-dom'
-
+import {Route} from 'react-router-dom'
+import Search from './Search'
 
 import { Link } from 'react-router-dom'
 
@@ -59,62 +59,19 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
-        <Routes>
-        <Route path = "/search">
-                        <Link
-                className="close-search"
-                to = '/'
-              >
-                Close
-              </Link>
-        <div className="search-books">
-            <div className="search-books-bar">
+          <Route path = "/search" render ={()=>(
+            <Search returnedBooks ={this.state.returnedBooks} handleSelection={this.handleSelection}/>
+          )}>
 
-              <div className="search-books-input-wrapper">
-                {/*
-                  NOTES: The search from BooksAPI is limited to a particular set of search terms.
-                  You can find these search terms here:
-                  https://github.com/udacity/reactnd-project-myreads-starter/blob/master/SEARCH_TERMS.md
+        </Route>
 
-                  However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
-                  you don't find a specific author or title. Every search is limited by search terms.
-                */}
-                <input
-                  type="text"
-                  placeholder="Search by title or author"
-                  onChange={this.handleSearch}
-                />
-              </div>
-            </div>
-            <div className="search-books-results">
-              <ol className="books-grid">
-                {this.state.returnedBooks == undefined ? (
-                  <li />
-                ) : Array.isArray(this.state.returnedBooks) ? (
-                  this.state.returnedBooks.map((book) => (
-                    <li key={book.id}>
-                      <Book
-                        abooks={book}
-                        handleSelection={this.handleSelection}
-                      />
-                    </li>
-                  ))
-                ) : (
-                  <li />
-                )}
-              </ol>
-            </div>
-          </div>
-         </Route>
-
-      <Route path = "/" >
+      <Route exact path = "/" >
         <Container
+        
           books={this.state.Allbooks}
           handleSelection={this.handleSelection}
         />
-          //container
       </Route>
-</Routes>
       </div>
 
 

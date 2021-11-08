@@ -13,6 +13,7 @@ function Container (props){
     // console.log(this.props.books)
     //console.log(this.props.books.filter(book => book.shelf === "wantToRead"))
     return (
+      
       <div className="list-books">
         <div className="list-books-title">
           <h1>MyReads</h1>
@@ -20,22 +21,22 @@ function Container (props){
         <div className="list-books-content">
           <Shelf
             shelfName="Currently Reading"
-            books={this.props.books.filter(
+            books={props.books.filter(
               (book) => book.shelf === "currentlyReading"
             )}
-            handleSelection={this.props.handleSelection}
+            handleSelection={props.handleSelection}
           />
           <Shelf
             shelfName="Want to read"
-            books={this.props.books.filter(
+            books={props.books.filter(
               (book) => book.shelf === "wantToRead"
             )}
-            handleSelection={this.props.handleSelection}
+            handleSelection={props.handleSelection}
           />
           <Shelf
             shelfName="Read"
-            books={this.props.books.filter((book) => book.shelf === "read")}
-            handleSelection={this.props.handleSelection}
+            books={props.books.filter((book) => book.shelf === "read")}
+            handleSelection={props.handleSelection}
           />
         </div>
         <div className="open-search">

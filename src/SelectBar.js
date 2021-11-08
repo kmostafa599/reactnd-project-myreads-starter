@@ -3,14 +3,14 @@ import * as BooksAPI from "./BooksAPI";
 
 
 
-function SelectBar (){
+function SelectBar (props){
 
-  const theBook = this.props.book;
+  const theBook = props.book;
   //console.log("TheBook in selectBar",theBook)
   return (
     <select
       value={theBook.shelf ? theBook.shelf : (theBook.shelf = "none")}
-      onChange={(e) => this.props.selection(e.target.value, theBook)}
+      onChange={(e) => props.selection(e.target.value, theBook)}
     >
       <option value="move" disabled>
         Move to...
