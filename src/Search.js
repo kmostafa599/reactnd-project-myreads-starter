@@ -40,7 +40,8 @@ function Search(props){
         
         <li key={book.id}>
           <Book
-            abooks={book}
+          allBooks={props.Allbooks}
+          abooks={book}
             handleSelection={props.handleSelection}
           />
         </li>

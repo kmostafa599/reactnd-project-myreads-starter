@@ -16,6 +16,7 @@ function Shelf (props){
             {props.books.map((book) => (
               <li key={book.id}>
                 <Book
+                  allBooks={props.allBooks}
                   abooks={book}
                   handleSelection={props.handleSelection}
                 />

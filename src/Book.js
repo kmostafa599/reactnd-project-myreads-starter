@@ -29,7 +29,7 @@ function Book (props){
           />
 
           <div className="book-shelf-changer">
-            <SelectBar book={theBook} selection={props.handleSelection} />
+            <SelectBar allBooks={props.allBooks} book={theBook} selection={props.handleSelection} />
           </div>
         </div>
         <div className="book-title">{theBook.title}</div>

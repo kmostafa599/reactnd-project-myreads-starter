@@ -20,6 +20,7 @@ function Container (props){
         </div>
         <div className="list-books-content">
           <Shelf
+          allBooks={props.Allbooks}
             shelfName="Currently Reading"
             books={props.books.filter(
               (book) => book.shelf === "currentlyReading"
@@ -27,6 +28,8 @@ function Container (props){
             handleSelection={props.handleSelection}
           />
           <Shelf
+                    allBooks={props.Allbooks}
+
             shelfName="Want to read"
             books={props.books.filter(
               (book) => book.shelf === "wantToRead"
@@ -34,6 +37,8 @@ function Container (props){
             handleSelection={props.handleSelection}
           />
           <Shelf
+                    allBooks={props.Allbooks}
+
             shelfName="Read"
             books={props.books.filter((book) => book.shelf === "read")}
             handleSelection={props.handleSelection}

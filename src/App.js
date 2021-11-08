@@ -60,14 +60,14 @@ class BooksApp extends React.Component {
     return (
       <div className="app">
           <Route path = "/search" render ={()=>(
-            <Search returnedBooks ={this.state.returnedBooks} handleSearch={this.handleSearch}/>
+            <Search Allbooks={this.state.Allbooks} returnedBooks ={this.state.returnedBooks} handleSearch={this.handleSearch}/>
           )}>
 
         </Route>
 
       <Route exact path = "/" >
         <Container
-        
+          Allbooks={this.state.Allbooks}
           books={this.state.Allbooks}
           handleSelection={this.handleSelection}
         />

@@ -7,9 +7,15 @@ function SelectBar (props){
 
   const theBook = props.book;
   //console.log("TheBook in selectBar",theBook)
+  var shelf ="none"
+  props.allBooks.forEach(element => {
+    if(element.id===theBook.id){
+      shelf  = element.shelf
+    }
+  });
   return (
     <select
-      value={theBook.shelf ? theBook.shelf : (theBook.shelf = "none")}
+      value={shelf}
       onChange={(e) => props.selection(e.target.value, theBook)}
     >
       <option value="move" disabled>
