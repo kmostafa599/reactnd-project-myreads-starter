@@ -5,7 +5,7 @@ import SelectBar from "./SelectBar";
 function Book (props){
   
 
-    const theBook = this.props.abooks;
+    const theBook = props.abooks;
     console.log("array of books", theBook);
     return (
       <div className="book">
@@ -26,9 +26,9 @@ function Book (props){
                   }
             }
           />
-
+  
           <div className="book-shelf-changer">
-            <SelectBar book={theBook} selection={this.props.handleSelection} />
+            <SelectBar book={theBook} selection={props.handleSelection} />
           </div>
         </div>
         <div className="book-title">{theBook.title}</div>
